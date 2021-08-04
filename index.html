@@ -1,0 +1,32 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Food App</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body> </body>
+</html>
+<script type="module">
+  //Importing navbar and other function from components
+  import { navbar, searchBar } from "./components/navbar.js";
+  import searchItems from "./scripts/getData.js";
+  document.body.innerHTML = navbar();
+  document.body.innerHTML += searchBar();
+
+  let mainContent = document.getElementById("mainContent");
+
+  let searchItem = document.getElementById("searchItems");
+  searchItem.addEventListener("click", () => {
+    let query = document.getElementById("search").value;
+    searchItems(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`,
+      mainContent
+    );
+  });
+</script>

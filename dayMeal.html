@@ -1,0 +1,24 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body> </body>
+</html>
+<script type="module">
+  import { navbar, content } from "./components/navbar.js";
+  import searchItems from "./scripts/getData.js";
+  document.body.innerHTML = navbar();
+  document.body.innerHTML += content();
+
+  let mainContent = document.getElementById("mainContent");
+
+  let searchItem = document.getElementById("searchItems");
+  searchItems(
+    `https://www.themealdb.com/api/json/v1/1/search.php?s=chicken`,
+    mainContent
+  );
+</script>
