@@ -2,7 +2,7 @@
 
 async function searchItems(url, parent) {
   mainContent.innerHTML = null;
-
+  
   let res = await fetch(url);
   let data = await res.json();
 
